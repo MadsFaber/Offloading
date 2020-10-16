@@ -6,7 +6,7 @@ import java.sql.SQLException;
 public class Datamanager {
     static ResultSet resultSet;
 
-    public static String getAllHomos() throws SQLException {
+    public static String getFirstDbname() throws SQLException {
         resultSet = ConnectionManager.selectSQL(QueryManager.selectAllhomos());
         while (resultSet.next()) {
             String name = resultSet.getString(2);

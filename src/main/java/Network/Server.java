@@ -7,8 +7,6 @@ import database.Datamanager;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.net.Inet4Address;
-import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.sql.SQLException;
 
@@ -23,13 +21,9 @@ public class Server {
 
     private static void handleRequest(HttpExchange exchange) throws IOException {
         try {
-
-            String response = Datamanager.getAllHomos() + " is gay";
+            String response = Datamanager.getFirstDbname();
             System.out.println(exchange.getRemoteAddress());
-
-
             exchange.sendResponseHeaders(200, response.getBytes().length);
-
             OutputStream os = exchange.getResponseBody();
             os.write(response.getBytes());
             os.close();
