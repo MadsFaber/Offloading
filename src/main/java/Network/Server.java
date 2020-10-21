@@ -13,7 +13,7 @@ import java.sql.SQLException;
 public class Server {
 
     public void start() throws IOException {
-        HttpServer server = HttpServer.create(new InetSocketAddress("192.168.43.68",8080), 0);
+        HttpServer server = HttpServer.create(new InetSocketAddress("localhost",8080), 0);
         HttpContext context = server.createContext("/");
         context.setHandler(Server::handleRequest);
         server.start();
