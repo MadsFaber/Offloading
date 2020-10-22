@@ -1,0 +1,31 @@
+openapi: "3.0.0"
+info:
+    description: "Semester project for 7th semester at Aalborg University"
+    version: "1.0.0"
+    title: "Offloading"
+
+components:
+    schemas:
+        job:
+            type: object
+            properties:
+                name:
+                    type: string
+                id:
+                    type: integer
+                    format: i32
+
+
+paths:
+    /api:
+        get:
+            description: Returns funky stuff
+            responses:
+                '200':
+                    description: List of funky stuff
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/job'
