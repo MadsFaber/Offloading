@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.net.Socket;
 public class Client {
     public final static int SOCKET_PORT = 13267;      // you may change this
-    public final static String SERVER = "172.28.223.149";  // localhost
+    public final static String SERVER = "127.0.0.1";  // localhost
     public final static String
             FILE_TO_RECEIVED = "C:/Programming/Offloading/TestFiles/ass2.txt";  // you may change this, I give a
     // different name because i don't want to
