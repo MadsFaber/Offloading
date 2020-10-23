@@ -88,23 +88,6 @@
                         </plugin>
                         
                         <plugin>
-                            <groupId>org.codehaus.mojo</groupId>
-                            <artifactId>exec-maven-plugin</artifactId>
-                            <version>1.6.0</version>
-                            <executions>
-                                <execution>
-                                    <phase>run</phase>
-                                    <goals>
-                                        <goal>java</goal>
-                                    </goals>
-                                    <configuration>
-                                        <mainClass>Main</mainClass>
-                                    </configuration>
-                                </execution>
-                            </executions> 
-                        </plugin>
-
-                        <plugin>
                             <groupId>org.openapitools</groupId>
                             <artifactId>openapi-generator-maven-plugin</artifactId>
                             <!-- RELEASE_VERSION -->
@@ -116,11 +99,10 @@
                                         <goal>generate</goal>
                                     </goals>
                                     <configuration>
-                                        <inputSpec>${project.basedir}/src/main/resources/api.yaml</inputSpec>
+                                        <inputSpec>${project.basedir}/src/main/resources/openapi-definition.yaml</inputSpec>
                                         <generatorName>spring</generatorName>
-                                        <configOptions>
-                                           <sourceFolder>src/gen/java/main</sourceFolder>
-                                        </configOptions>
+                                        <configurationFile>${project.basedir}/openapi-generator-config.json</configurationFile>
+                                        <ignoreFileOverride>${project.basedir}/.openapi-generator-ignore</ignoreFileOverride>
                                     </configuration>
                                 </execution>
                             </executions>

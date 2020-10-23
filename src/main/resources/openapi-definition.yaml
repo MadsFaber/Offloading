@@ -17,7 +17,7 @@ components:
 
 
 paths:
-    /api:
+    /jobs:
         get:
             description: Returns funky stuff
             responses:

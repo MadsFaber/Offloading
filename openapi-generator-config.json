@@ -1,0 +1,6 @@
+{
+    "basePackage": "p7gruppe.p7.offloading",
+    "modelPackage": "p7gruppe.p7.offloading.model",
+    "apiPackage": "p7gruppe.p7.offloading.api",
+    "configPackage": "p7gruppe.p7.offloading.config"
+}
