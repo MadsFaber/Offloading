@@ -18,12 +18,6 @@ public class JobsController implements JobsApi {
     }
 
     @Override
-    public ResponseEntity<List<Job>> jobsGet(@NotNull @Valid Job query) {
-        System.out.println("Got get request 2");
-        return null;
-    }
-
-    @Override
     public ResponseEntity<Void> jobsPost(@NotNull @Valid Job query) {
         System.out.println("Got post request");
         System.out.println("Received post - id: " + query.getId() + ", name: " + query.getName());
