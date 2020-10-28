@@ -1,31 +1,57 @@
 openapi: "3.0.0"
 info:
-    description: "Semester project for 7th semester at Aalborg University"
-    version: "1.0.0"
-    title: "Offloading"
+  description: "Semester project for 7th semester at Aalborg University"
+  version: "1.0.0"
+  title: "Offloading"
+servers:
+  - url: http://localhost:8080
 
 components:
-    schemas:
-        job:
-            type: object
-            properties:
-                name:
-                    type: string
-                id:
-                    type: integer
-                    format: i32
-
+  schemas:
+    job:
+      type: object
+      properties:
+        name:
+          type: string
+        id:
+          type: integer
+          format: i64
+          default: 0
 
 paths:
-    /jobs:
-        get:
-            description: Returns funky stuff
-            responses:
-                '200':
-                    description: List of funky stuff
-                    content:
-                        application/json:
-                            schema:
-                                type: array
-                                items:
-                                    $ref: '#/components/schemas/job'
+  /jobs:
+    get:
+      description: Returns funky stuff
+      operationId: jobsGet
+      responses:
+        '200':
+          description: List of funky stuff
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/job'
+    post:
+      summary: Create a job
+      operationId: jobsPost
+      "parameters": [
+        {
+          "in": "query",
+          "name": "query",
+          "description": "Job object that needs to be added to the store",
+          "required": true,
+          "schema": {
+            "$ref": '#/components/schemas/job'
+          }
+        }
+      ]
+      responses:
+        '201':
+          description: Created job
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/job'
