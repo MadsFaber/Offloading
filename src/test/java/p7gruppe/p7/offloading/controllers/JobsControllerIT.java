@@ -1,6 +1,7 @@
 package p7gruppe.p7.offloading.api;
 
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -20,6 +21,6 @@ class JobsControllerIT {
     @Test
     @DisplayName("Ok response when request is sent to /jobs endpoint")
     public void shouldReturnOkOnJobsEndpoint() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/jobs")).andExpect(status().isOk());
+        mockMvc.perform(get("/jobs")).andExpect(status().isOk());
     }
 }
